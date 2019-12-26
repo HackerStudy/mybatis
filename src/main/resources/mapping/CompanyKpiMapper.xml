@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gdms.dao.CompanyKpiMapper">
+  <resultMap id="BaseResultMap" type="com.gdms.model.CompanyKpi">
+    <constructor>
+      <idArg column="kpi_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="dept_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="year_number" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="index_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="unit_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="goal_value" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="created_by" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creation_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="last_updated_by" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="last_update_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    kpi_id, dept_id, year_number, index_name, unit_name, goal_value, created_by, creation_date, 
+    last_updated_by, last_update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from amc_company_kpi
+    where kpi_id = #{kpiId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from amc_company_kpi
+    where kpi_id = #{kpiId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.gdms.model.CompanyKpi">
+    insert into amc_company_kpi (kpi_id, dept_id, year_number, 
+      index_name, unit_name, goal_value, 
+      created_by, creation_date, last_updated_by, 
+      last_update_date)
+    values (#{kpiId,jdbcType=VARCHAR}, #{deptId,jdbcType=VARCHAR}, #{yearNumber,jdbcType=VARCHAR}, 
+      #{indexName,jdbcType=VARCHAR}, #{unitName,jdbcType=VARCHAR}, #{goalValue,jdbcType=DECIMAL}, 
+      #{createdBy,jdbcType=VARCHAR}, #{creationDate,jdbcType=TIMESTAMP}, #{lastUpdatedBy,jdbcType=VARCHAR}, 
+      #{lastUpdateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gdms.model.CompanyKpi">
+    insert into amc_company_kpi
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="kpiId != null">
+        kpi_id,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="yearNumber != null">
+        year_number,
+      </if>
+      <if test="indexName != null">
+        index_name,
+      </if>
+      <if test="unitName != null">
+        unit_name,
+      </if>
+      <if test="goalValue != null">
+        goal_value,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="creationDate != null">
+        creation_date,
+      </if>
+      <if test="lastUpdatedBy != null">
+        last_updated_by,
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="kpiId != null">
+        #{kpiId,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="yearNumber != null">
+        #{yearNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="indexName != null">
+        #{indexName,jdbcType=VARCHAR},
+      </if>
+      <if test="unitName != null">
+        #{unitName,jdbcType=VARCHAR},
+      </if>
+      <if test="goalValue != null">
+        #{goalValue,jdbcType=DECIMAL},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="creationDate != null">
+        #{creationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdatedBy != null">
+        #{lastUpdatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gdms.model.CompanyKpi">
+    update amc_company_kpi
+    <set>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=VARCHAR},
+      </if>
+      <if test="yearNumber != null">
+        year_number = #{yearNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="indexName != null">
+        index_name = #{indexName,jdbcType=VARCHAR},
+      </if>
+      <if test="unitName != null">
+        unit_name = #{unitName,jdbcType=VARCHAR},
+      </if>
+      <if test="goalValue != null">
+        goal_value = #{goalValue,jdbcType=DECIMAL},
+      </if>
+      <if test="createdBy != null">
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="creationDate != null">
+        creation_date = #{creationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdatedBy != null">
+        last_updated_by = #{lastUpdatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date = #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where kpi_id = #{kpiId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gdms.model.CompanyKpi">
+    update amc_company_kpi
+    set dept_id = #{deptId,jdbcType=VARCHAR},
+      year_number = #{yearNumber,jdbcType=VARCHAR},
+      index_name = #{indexName,jdbcType=VARCHAR},
+      unit_name = #{unitName,jdbcType=VARCHAR},
+      goal_value = #{goalValue,jdbcType=DECIMAL},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      creation_date = #{creationDate,jdbcType=TIMESTAMP},
+      last_updated_by = #{lastUpdatedBy,jdbcType=VARCHAR},
+      last_update_date = #{lastUpdateDate,jdbcType=TIMESTAMP}
+    where kpi_id = #{kpiId,jdbcType=VARCHAR}
+  </update>
+</mapper>

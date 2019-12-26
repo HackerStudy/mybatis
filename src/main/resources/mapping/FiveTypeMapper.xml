@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gdms.dao.FiveTypeMapper">
+  <resultMap id="BaseResultMap" type="com.gdms.model.FiveType">
+    <constructor>
+      <arg column="FIVE_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="REMARK" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="LEDGERTYPE_NUMBER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BEFORE_FIVE_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="FIVE_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OWNER_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="OWNING_BUSINESS_UNIT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SUBMIT_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="APPROVED_TIME" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="APPROVAL_STATUS" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE1" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE2" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE3" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE4" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE5" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE6" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE7" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE8" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE9" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE10" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE11" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE12" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE13" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE14" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE15" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ATTRIBUTE16" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATED_BY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATION_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="LAST_UPDATED_BY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="LAST_UPDATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="PROJECT_TYPE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROJECT_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="FIVE_NUMBER" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.gdms.model.FiveType">
+    insert into amc_five_type (FIVE_ID, REMARK, LEDGERTYPE_NUMBER, 
+      BEFORE_FIVE_TYPE, FIVE_TYPE, OWNER_ID, 
+      OWNING_BUSINESS_UNIT, SUBMIT_TIME, APPROVED_TIME, 
+      APPROVAL_STATUS, ATTRIBUTE1, ATTRIBUTE2, 
+      ATTRIBUTE3, ATTRIBUTE4, ATTRIBUTE5, 
+      ATTRIBUTE6, ATTRIBUTE7, ATTRIBUTE8, 
+      ATTRIBUTE9, ATTRIBUTE10, ATTRIBUTE11, 
+      ATTRIBUTE12, ATTRIBUTE13, ATTRIBUTE14, 
+      ATTRIBUTE15, ATTRIBUTE16, CREATED_BY, 
+      CREATION_DATE, LAST_UPDATED_BY, LAST_UPDATE_DATE, 
+      PROJECT_TYPE, PROJECT_NAME, FIVE_NUMBER
+      )
+    values (#{fiveId,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{ledgertypeNumber,jdbcType=VARCHAR}, 
+      #{beforeFiveType,jdbcType=VARCHAR}, #{fiveType,jdbcType=VARCHAR}, #{ownerId,jdbcType=VARCHAR}, 
+      #{owningBusinessUnit,jdbcType=VARCHAR}, #{submitTime,jdbcType=TIMESTAMP}, #{approvedTime,jdbcType=TIMESTAMP}, 
+      #{approvalStatus,jdbcType=VARCHAR}, #{attribute1,jdbcType=VARCHAR}, #{attribute2,jdbcType=VARCHAR}, 
+      #{attribute3,jdbcType=VARCHAR}, #{attribute4,jdbcType=VARCHAR}, #{attribute5,jdbcType=VARCHAR}, 
+      #{attribute6,jdbcType=VARCHAR}, #{attribute7,jdbcType=VARCHAR}, #{attribute8,jdbcType=VARCHAR}, 
+      #{attribute9,jdbcType=VARCHAR}, #{attribute10,jdbcType=VARCHAR}, #{attribute11,jdbcType=VARCHAR}, 
+      #{attribute12,jdbcType=VARCHAR}, #{attribute13,jdbcType=VARCHAR}, #{attribute14,jdbcType=VARCHAR}, 
+      #{attribute15,jdbcType=VARCHAR}, #{attribute16,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, 
+      #{creationDate,jdbcType=TIMESTAMP}, #{lastUpdatedBy,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=TIMESTAMP}, 
+      #{projectType,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, #{fiveNumber,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gdms.model.FiveType">
+    insert into amc_five_type
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fiveId != null">
+        FIVE_ID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="ledgertypeNumber != null">
+        LEDGERTYPE_NUMBER,
+      </if>
+      <if test="beforeFiveType != null">
+        BEFORE_FIVE_TYPE,
+      </if>
+      <if test="fiveType != null">
+        FIVE_TYPE,
+      </if>
+      <if test="ownerId != null">
+        OWNER_ID,
+      </if>
+      <if test="owningBusinessUnit != null">
+        OWNING_BUSINESS_UNIT,
+      </if>
+      <if test="submitTime != null">
+        SUBMIT_TIME,
+      </if>
+      <if test="approvedTime != null">
+        APPROVED_TIME,
+      </if>
+      <if test="approvalStatus != null">
+        APPROVAL_STATUS,
+      </if>
+      <if test="attribute1 != null">
+        ATTRIBUTE1,
+      </if>
+      <if test="attribute2 != null">
+        ATTRIBUTE2,
+      </if>
+      <if test="attribute3 != null">
+        ATTRIBUTE3,
+      </if>
+      <if test="attribute4 != null">
+        ATTRIBUTE4,
+      </if>
+      <if test="attribute5 != null">
+        ATTRIBUTE5,
+      </if>
+      <if test="attribute6 != null">
+        ATTRIBUTE6,
+      </if>
+      <if test="attribute7 != null">
+        ATTRIBUTE7,
+      </if>
+      <if test="attribute8 != null">
+        ATTRIBUTE8,
+      </if>
+      <if test="attribute9 != null">
+        ATTRIBUTE9,
+      </if>
+      <if test="attribute10 != null">
+        ATTRIBUTE10,
+      </if>
+      <if test="attribute11 != null">
+        ATTRIBUTE11,
+      </if>
+      <if test="attribute12 != null">
+        ATTRIBUTE12,
+      </if>
+      <if test="attribute13 != null">
+        ATTRIBUTE13,
+      </if>
+      <if test="attribute14 != null">
+        ATTRIBUTE14,
+      </if>
+      <if test="attribute15 != null">
+        ATTRIBUTE15,
+      </if>
+      <if test="attribute16 != null">
+        ATTRIBUTE16,
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY,
+      </if>
+      <if test="creationDate != null">
+        CREATION_DATE,
+      </if>
+      <if test="lastUpdatedBy != null">
+        LAST_UPDATED_BY,
+      </if>
+      <if test="lastUpdateDate != null">
+        LAST_UPDATE_DATE,
+      </if>
+      <if test="projectType != null">
+        PROJECT_TYPE,
+      </if>
+      <if test="projectName != null">
+        PROJECT_NAME,
+      </if>
+      <if test="fiveNumber != null">
+        FIVE_NUMBER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fiveId != null">
+        #{fiveId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="ledgertypeNumber != null">
+        #{ledgertypeNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="beforeFiveType != null">
+        #{beforeFiveType,jdbcType=VARCHAR},
+      </if>
+      <if test="fiveType != null">
+        #{fiveType,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerId != null">
+        #{ownerId,jdbcType=VARCHAR},
+      </if>
+      <if test="owningBusinessUnit != null">
+        #{owningBusinessUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="submitTime != null">
+        #{submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approvedTime != null">
+        #{approvedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approvalStatus != null">
+        #{approvalStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute1 != null">
+        #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null">
+        #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null">
+        #{attribute3,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute4 != null">
+        #{attribute4,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute5 != null">
+        #{attribute5,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute6 != null">
+        #{attribute6,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute7 != null">
+        #{attribute7,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute8 != null">
+        #{attribute8,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute9 != null">
+        #{attribute9,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute10 != null">
+        #{attribute10,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute11 != null">
+        #{attribute11,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute12 != null">
+        #{attribute12,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute13 != null">
+        #{attribute13,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute14 != null">
+        #{attribute14,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute15 != null">
+        #{attribute15,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute16 != null">
+        #{attribute16,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="creationDate != null">
+        #{creationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdatedBy != null">
+        #{lastUpdatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="projectType != null">
+        #{projectType,jdbcType=VARCHAR},
+      </if>
+      <if test="projectName != null">
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="fiveNumber != null">
+        #{fiveNumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
