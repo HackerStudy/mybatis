@@ -32,6 +32,7 @@
             <verbose>true</verbose>
             <!-- 重复生成时会覆盖之前的文件-->
             <overwrite>true</overwrite>
+            <!--配置文件的位置-->
             <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
           </configuration>
           <dependencies>
